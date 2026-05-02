@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [text, setText] = useState("");
-  const fullText = "Full Stack Senior Software Developer based in Aarhus, Denmark";
+  const fullText = "Full Stack Software Developer based in Aarhus, Denmark";
 
   useEffect(() => {
     let i = 0;

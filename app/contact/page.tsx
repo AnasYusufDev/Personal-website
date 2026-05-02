@@ -5,6 +5,25 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async () => {
+    setStatus("sending");
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    if (res.ok) {
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      setStatus("error");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white px-8 py-6">
@@ -19,10 +38,8 @@ export default function Contact() {
         </div>
       </nav>
 
-      {/* Titel */}
       <h1 className="text-5xl font-bold mb-12">Contact Me</h1>
 
-      {/* Form */}
       <div className="flex flex-col gap-4 max-w-full">
         <input
           type="text"
@@ -45,9 +62,20 @@ export default function Contact() {
           rows={8}
           className="w-full border border-gray-200 rounded-xl px-6 py-4 text-gray-500 outline-none resize-none"
         />
-        <button className="w-full bg-gray-700 text-white font-semibold py-4 rounded-xl hover:bg-gray-900">
-          Send Message
+        <button
+          onClick={handleSubmit}
+          disabled={status === "sending"}
+          className="w-full bg-gray-700 text-white font-semibold py-4 rounded-xl hover:bg-gray-900"
+        >
+          {status === "sending" ? "Sender..." : "Send Message"}
         </button>
+
+        {status === "success" && (
+          <p className="text-green-600 text-center">Besked sendt! ✅</p>
+        )}
+        {status === "error" && (
+          <p className="text-red-600 text-center">Noget gik galt. Prøv igen!</p>
+        )}
       </div>
 
     </div>

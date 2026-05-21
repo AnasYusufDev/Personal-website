@@ -39,7 +39,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white px-8 flex flex-col">
       <Navbar active="contact" />
 
-      <div className="flex-1 pt-24">
+      <div className="flex-1 pt-24 pb-24">
         <h1 className="text-5xl font-bold mb-12">Contact Me</h1>
 
         <div className="flex flex-col gap-4 max-w-full">
@@ -81,7 +81,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <footer className="flex justify-between items-center py-6">
+      <footer className="fixed bottom-0 left-0 right-0 bg-white px-8 flex justify-between items-center py-6 border-t border-gray-100 z-50">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">
           <a href="https://linkedin.com/in/anas-yusuf-dev" target="_blank" rel="noopener noreferrer"

@@ -15,7 +15,7 @@ export default function Resume() {
     <div className="min-h-screen bg-white px-8 flex flex-col">
       <Navbar active="resume" />
 
-      <div className="flex-1 pt-24" style={{ fontFamily: 'monospace' }}>
+      <div className="flex-1 pt-24 pb-24" style={{ fontFamily: 'monospace' }}>
         <h1 className="text-5xl font-bold mb-12">Résumé</h1>
 
         <section className="mb-12">
@@ -62,20 +62,10 @@ export default function Resume() {
               Designed and developed a full-stack delivery platform end-to-end, implementing customer ordering, a dedicated driver interface, and secure user authentication — following best practices in software architecture and deploying the application to a live production environment.
             </p>
           </div>
-
-          <div className="mb-8 opacity-30">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="font-bold">[ project 2 ]</h3>
-              <span className="text-gray-500 text-sm">2026</span>
-            </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              [ teskt ]
-            </p>
-          </div>
         </section>
       </div>
 
-      <footer className="flex justify-between items-center py-6">
+      <footer className="fixed bottom-0 left-0 right-0 bg-white px-8 flex justify-between items-center py-6 border-t border-gray-100 z-50">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">
           <a href="https://linkedin.com/in/anas-yusuf-dev" target="_blank" rel="noopener noreferrer"

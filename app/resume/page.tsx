@@ -2,7 +2,7 @@
 
 function Navbar({ active }: { active: string }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50 border-b border-gray-100">
       <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
       <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
       <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
@@ -12,12 +12,10 @@ function Navbar({ active }: { active: string }) {
 
 export default function Resume() {
   return (
-    <div className="min-h-screen bg-white px-8 flex flex-col">
+    <div className="min-h-screen bg-white px-8 flex flex-col overflow-y-scroll show-scrollbar">
       <Navbar active="resume" />
-
       <div className="flex-1 pt-24 pb-24" style={{ fontFamily: 'monospace' }}>
         <h1 className="text-5xl font-bold mb-12">Résumé</h1>
-
         <section className="mb-12">
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">💼 Skills</h2>
           <hr className="mb-8" />
@@ -48,11 +46,9 @@ export default function Resume() {
             </div>
           </div>
         </section>
-
         <section>
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">💼 Professional Experience</h2>
           <hr className="mb-8" />
-
           <div className="mb-8">
             <div className="flex justify-between items-start mb-2">
               <h3 className="font-bold">Delivery Platform</h3>
@@ -64,7 +60,6 @@ export default function Resume() {
           </div>
         </section>
       </div>
-
       <footer className="fixed bottom-0 left-0 right-0 bg-white px-8 flex justify-between items-center py-6 border-t border-gray-100 z-50">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">

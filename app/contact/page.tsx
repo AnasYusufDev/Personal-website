@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function Navbar({ active }: { active: string }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50 border-b border-gray-100">
       <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
       <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
       <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
@@ -24,7 +24,6 @@ export default function Contact() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, message }),
     });
-
     if (res.ok) {
       setStatus("success");
       setName("");
@@ -36,51 +35,25 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white px-8 flex flex-col">
+    <div className="min-h-screen bg-white px-8 flex flex-col overflow-y-scroll" style={{ scrollbarWidth: 'thin' }}>
       <Navbar active="contact" />
-
       <div className="flex-1 pt-24 pb-24">
         <h1 className="text-5xl font-bold mb-12">Contact Me</h1>
-
         <div className="flex flex-col gap-4 max-w-full">
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl px-6 py-4 text-gray-500 outline-none"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-gray-200 rounded-xl px-6 py-4 text-gray-500 outline-none"
-          />
-          <textarea
-            placeholder="Message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows={8}
-            className="w-full border border-gray-200 rounded-xl px-6 py-4 text-gray-500 outline-none resize-none"
-          />
-          <button
-            onClick={handleSubmit}
-            disabled={status === "sending"}
-            className="w-full bg-gray-700 text-white font-semibold py-4 rounded-xl hover:bg-gray-900"
-          >
+          <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}
+            className="w-full border border-gray-200 rounded-xl px-6 py-4 text-gray-500 outline-none" />
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}
+            className="w-full border border-gray-200 rounded-xl px-6 py-4 text-gray-500 outline-none" />
+          <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} rows={8}
+            className="w-full border border-gray-200 rounded-xl px-6 py-4 text-gray-500 outline-none resize-none" />
+          <button onClick={handleSubmit} disabled={status === "sending"}
+            className="w-full bg-gray-700 text-white font-semibold py-4 rounded-xl hover:bg-gray-900">
             {status === "sending" ? "Sender..." : "Send Message"}
           </button>
-
-          {status === "success" && (
-            <p className="text-green-600 text-center">Besked sendt! ✅</p>
-          )}
-          {status === "error" && (
-            <p className="text-red-600 text-center">Noget gik galt. Prøv igen!</p>
-          )}
+          {status === "success" && <p className="text-green-600 text-center">Besked sendt! ✅</p>}
+          {status === "error" && <p className="text-red-600 text-center">Noget gik galt. Prøv igen!</p>}
         </div>
       </div>
-
       <footer className="fixed bottom-0 left-0 right-0 bg-white px-8 flex justify-between items-center py-6 border-t border-gray-100 z-50">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 function Navbar({ active }: { active: string }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50 border-b border-gray-100">
       <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
       <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
       <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
@@ -26,15 +26,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white px-8">
+    <div className="min-h-screen flex flex-col bg-white px-8 overflow-y-scroll">
       <Navbar active="home" />
-
       <main className="flex-1 flex flex-col items-center justify-center text-center">
-        <h1 className="text-8xl font-bold tracking-widest uppercase">I'M ANAS YUSUF</h1>
+        <h1 className="text-6xl font-bold tracking-widest uppercase">I'M ANAS YUSUF</h1>
         <p className="mt-6 text-lg tracking-wide text-gray-600">{text}</p>
       </main>
-
-      <footer className="flex justify-between items-center py-6">
+      <footer className="fixed bottom-0 left-0 right-0 bg-white px-8 flex justify-between items-center py-6 border-t border-gray-100 z-50">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">
           <a href="https://linkedin.com/in/anas-yusuf-dev" target="_blank" rel="noopener noreferrer"

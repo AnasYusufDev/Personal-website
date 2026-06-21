@@ -3,7 +3,7 @@
 Personal portfolio website built to showcase my projects and skills as a full-stack developer.
 
 ## 🔗 Live Demo
-[Visit Portfolio](https://personal-portfolio-7l48-fpp7x0ifp-anasyusufdevs-projects.vercel.app/)
+[Visit Portfolio](https://personal-portfolio-7l48.vercel.app/)
 
 ## 🛠️ Built With
 - Next.js
